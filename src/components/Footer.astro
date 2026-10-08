@@ -1,0 +1,43 @@
+---
+import { site, url, emailLink } from '../lib/site';
+---
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div>
+      <a class="brand" href={url()}>
+        <img src={url('alphpaca-emblem.svg')} width="33" height="35" alt="" />
+        <span>
+          alphpaca<span class="brand-dot">.</span>
+        </span>
+      </a>
+      <p>
+        Thoughtful software.
+        <br />
+        Long-term thinking.
+      </p>
+    </div>
+    <div class="footer-column">
+      <span class="eyebrow">Explore</span>
+      <a href={url('studio/')}>The studio</a>
+      <a href={url('services/')}>Our services</a>
+      <a href={url('contact/')}>Get in touch</a>
+    </div>
+    <div class="footer-column">
+      <span class="eyebrow">In the making</span>
+      <a href={url('products/atlas-cloud/')}>Atlas Cloud</a>
+      <a href={url('products/eduroo/')}>Eduroo</a>
+      <a href={url('products/')}>Our products</a>
+    </div>
+    <div class="footer-column">
+      <span class="eyebrow">Have something in mind?</span>
+      <a href={emailLink()}>{site.email}</a>
+      <span class="footer-note">Let’s make it happen.</span>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© {new Date().getFullYear()} Alphpaca</span>
+    <span>Independent by nature. Builders by choice.</span>
+    <a href={url('privacy/')}>Privacy</a>
+  </div>
+</footer>

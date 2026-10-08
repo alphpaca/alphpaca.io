@@ -1,0 +1,26 @@
+---
+import { url } from '../lib/site';
+interface Props {
+  title?: string;
+  text?: string;
+}
+const {
+  title = 'Have a good problem?\nLet’s build a great solution.',
+  text = 'A new product, a tricky system, or an idea worth exploring. We’d like to hear about it.',
+} = Astro.props;
+---
+
+<section class="container cta-section">
+  <div>
+    <span class="eyebrow">Your next chapter</span>
+    <h2>
+      {title.split('\n').map((line) => (
+        <span class="line">{line}</span>
+      ))}
+    </h2>
+    <p>{text}</p>
+  </div>
+  <a class="button button-gold" href={url('contact/')}>
+    Start a conversation <span aria-hidden="true">+</span>
+  </a>
+</section>

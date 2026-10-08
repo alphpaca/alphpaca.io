@@ -1,0 +1,160 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTA from '../../components/CTA.astro';
+import Icon from '../../components/Icon.astro';
+import ProductPreview from '../../components/ProductPreview.astro';
+import { url } from '../../lib/site';
+const features = [
+  {
+    icon: 'book' as const,
+    title: 'Structured courses',
+    text: 'Organize lessons, resources, and learning paths into a clear sequence learners can follow.',
+  },
+  {
+    icon: 'code' as const,
+    title: 'Practical assessments',
+    text: 'Use quizzes and assignments to check understanding, with feedback that helps learners take the next step.',
+  },
+  {
+    icon: 'layers' as const,
+    title: 'Visible progress',
+    text: 'Give learners a sense of momentum and educators a useful view of participation and course completion.',
+  },
+  {
+    icon: 'spark' as const,
+    title: 'A calmer experience',
+    text: 'Make the next lesson, required task, and relevant feedback easy to find. Keep the interface focused on learning.',
+  },
+  {
+    icon: 'shield' as const,
+    title: 'Clear responsibilities',
+    text: 'Separate administrator, educator, and learner workflows so each person has the tools they need.',
+  },
+  {
+    icon: 'cloud' as const,
+    title: 'Organization-ready',
+    text: 'Support the needs of training teams and educational organizations, with a considered approach to hosting and data ownership.',
+  },
+];
+---
+
+<Layout
+  title="Eduroo — Learning management, thoughtfully reimagined"
+  description="Eduroo is Alphpaca’s learning management platform in development, bringing structured courses, assessments, and learner progress into a clear, welcoming experience."
+>
+  <section class="container product-hero">
+    <div>
+      <span class="eyebrow">An Alphpaca product / Eduroo</span>
+      <span class="status-badge">In development</span>
+      <h1>
+        A better space
+        <br />
+        <span class="gold-text">
+          for learning
+          <br />
+          to happen.
+        </span>
+      </h1>
+      <p>
+        Eduroo is a learning management platform for educators and
+        organizations. Structured courses, meaningful assessments, and visible
+        progress—in a space that puts people first.
+      </p>
+      <a class="button button-gold" href={url('contact/?interest=eduroo')}>
+        Talk to us about Eduroo <span aria-hidden="true">+</span>
+      </a>
+    </div>
+    <ProductPreview product="eduroo" />
+  </section>
+  <section class="container product-intro">
+    <h2>
+      The depth of an LMS.
+      <br />A lighter learning experience.
+    </h2>
+    <p>
+      Traditional platforms like Moodle show how powerful learning management
+      can be. We’re building Eduroo around the same essential needs, with a
+      fresh focus on everyday usability for learners, educators, and
+      administrators.
+    </p>
+  </section>
+  <section class="container section">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">The product direction</span>
+        <h2>
+          Make learning clear.
+          <br />
+          Make progress visible.
+        </h2>
+      </div>
+      <p>
+        We’re shaping Eduroo for course creators, training teams, and
+        educational organizations. These are the capabilities guiding our work.
+      </p>
+    </div>
+    <div class="feature-grid">
+      {features.map((feature) => (
+        <article>
+          <Icon name={feature.icon} />
+          <h3>{feature.title}</h3>
+          <p>{feature.text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="container section roadmap">
+    <div class="roadmap-inner">
+      <div>
+        <span class="eyebrow">Where we’re heading</span>
+        <h2>
+          Start with the essentials.
+          <br />
+          <span class="gold-text">Learn from real use.</span>
+        </h2>
+        <p>
+          Eduroo is in development. We’re focusing on the journey from creating
+          a course to helping a learner complete it, before expanding into more
+          specialized workflows.
+        </p>
+        <p>
+          There’s no public release date or signup yet. We welcome conversations
+          with people who create, deliver, and manage learning.
+        </p>
+      </div>
+      <ol>
+        <li>
+          <div>
+            <h3>Course creation & delivery</h3>
+            <p>
+              A clear structure for lessons, learning materials, and course
+              participation.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Assessment & progress</h3>
+            <p>
+              Assignments, quizzes, feedback, and practical views of how
+              learners are doing.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Validate with educators</h3>
+            <p>
+              Refine the experience around real teaching, training, and
+              administrative needs.
+            </p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+  <CTA
+    title="Your experience could shape\na better learning platform."
+    text="Tell us what works in your current LMS, what feels harder than it should, and what your learners need most."
+  />
+</Layout>

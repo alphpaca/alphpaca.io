@@ -1,0 +1,205 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import CTA from '../components/CTA.astro';
+import ProductPreview from '../components/ProductPreview.astro';
+import { url } from '../lib/site';
+---
+
+<Layout>
+  <section class="container hero">
+    <div class="hero-copy">
+      <span class="eyebrow">
+        <span class="gold-line"></span> Software studio & product company
+      </span>
+      <h1>
+        Built with purpose.
+        <br />
+        <span class="gold-text">
+          Engineered
+          <br />
+          to last.
+        </span>
+      </h1>
+      <p>
+        We turn ambitious ideas into thoughtful software. From your next digital
+        product to the platforms we’re building ourselves.
+      </p>
+      <div class="button-row">
+        <a class="button button-gold" href={url('contact/')}>
+          Let’s build together <span aria-hidden="true">+</span>
+        </a>
+        <a class="text-link" href={url('products/')}>
+          Explore our products
+        </a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="orbital orbital-one"></div>
+      <div class="orbital orbital-two"></div>
+      <div class="orbital orbital-three"></div>
+      <span class="coordinate coordinate-top">INDEPENDENT THINKING</span>
+      <img
+        class="hero-emblem"
+        src={url('alphpaca-emblem.svg')}
+        width="330"
+        height="343"
+        alt=""
+        fetchpriority="high"
+      />
+      <div class="art-caption">
+        <span class="crosshair">+</span>
+        <span>ALPHPACA / BUILT FOR WHAT’S NEXT</span>
+      </div>
+    </div>
+  </section>
+  <div class="container discipline-strip">
+    <span>Small studio. Big-picture thinking.</span>
+    <div>
+      <span>Product engineering</span>
+      <span>Cloud platforms</span>
+      <span>Learning technology</span>
+    </div>
+  </div>
+  <section class="container section">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">01 / What we do</span>
+        <h2>
+          From first idea
+          <br />
+          to what comes next.
+        </h2>
+      </div>
+      <p>
+        We connect product thinking with hands-on engineering. Clear decisions,
+        dependable systems, and software that earns its place.
+      </p>
+    </div>
+    <div class="services-grid">
+      <a class="service-card" href={url('services/#product-engineering')}>
+        <Icon name="code" />
+        <span class="card-number">01</span>
+        <h3>Product engineering</h3>
+        <p>
+          Web applications, SaaS products, and custom systems. Built around real
+          needs, with a foundation for growth.
+        </p>
+        <span class="card-link">
+          Explore the craft <span aria-hidden="true">+</span>
+        </span>
+      </a>
+      <a class="service-card" href={url('services/#cloud-infrastructure')}>
+        <Icon name="layers" />
+        <span class="card-number">02</span>
+        <h3>Cloud & infrastructure</h3>
+        <p>
+          Docker-based environments, delivery pipelines, and practical
+          infrastructure that keeps your product moving.
+        </p>
+        <span class="card-link">
+          Explore the craft <span aria-hidden="true">+</span>
+        </span>
+      </a>
+      <a class="service-card" href={url('services/#technical-partnership')}>
+        <Icon name="spark" />
+        <span class="card-number">03</span>
+        <h3>Technical partnership</h3>
+        <p>
+          From shaping an MVP to untangling an existing system. A thoughtful
+          engineering partner for your next step.
+        </p>
+        <span class="card-link">
+          Explore the craft <span aria-hidden="true">+</span>
+        </span>
+      </a>
+    </div>
+  </section>
+  <section class="product-section">
+    <div class="container section">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">02 / In the making</span>
+          <h2>
+            Our ideas.
+            <br />
+            <span class="gold-text">Taking shape.</span>
+          </h2>
+        </div>
+        <div>
+          <p>
+            We’re builders on both sides of the table. These are the products
+            we’re developing to make complex things feel simpler.
+          </p>
+          <a class="text-link" href={url('products/')}>
+            Meet our products
+          </a>
+        </div>
+      </div>
+      <div class="product-grid">
+        <article class="product-card">
+          <ProductPreview product="atlas" />
+          <div class="product-card-copy">
+            <div class="product-title-row">
+              <h3>Atlas Cloud</h3>
+              <span class="status-badge">In development</span>
+            </div>
+            <p>
+              Your containers. Your infrastructure. A Docker-based PaaS designed
+              to take the friction out of deploying and running applications.
+            </p>
+            <a class="card-link" href={url('products/atlas-cloud/')}>
+              Discover Atlas Cloud <span aria-hidden="true">+</span>
+            </a>
+          </div>
+        </article>
+        <article class="product-card">
+          <ProductPreview product="eduroo" />
+          <div class="product-card-copy">
+            <div class="product-title-row">
+              <h3>Eduroo</h3>
+              <span class="status-badge">In development</span>
+            </div>
+            <p>
+              A fresh approach to learning management. Create meaningful
+              courses, guide learners, and see progress in one welcoming space.
+            </p>
+            <a class="card-link" href={url('products/eduroo/')}>
+              Discover Eduroo <span aria-hidden="true">+</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="container section studio-note">
+    <div>
+      <span class="eyebrow">03 / The way we think</span>
+      <h2>
+        Good partners.
+        <br />
+        Better software.
+      </h2>
+      <a class="text-link" href={url('studio/')}>
+        Get to know Alphpaca
+      </a>
+    </div>
+    <div>
+      <p class="large-copy">
+        We believe the best software starts with understanding the problem—and
+        caring about the details.
+      </p>
+      <p>
+        Alphpaca is an independent software studio with a product-builder’s
+        mindset. We stay close to the work, ask the useful questions, and build
+        for the people who will actually use it.
+      </p>
+      <div class="principle-tags">
+        <span>Purpose before features</span>
+        <span>Clarity over complexity</span>
+        <span>Built for the long run</span>
+      </div>
+    </div>
+  </section>
+  <CTA />
+</Layout>

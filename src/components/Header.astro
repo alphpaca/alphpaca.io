@@ -1,0 +1,79 @@
+---
+import { url } from '../lib/site';
+const path =
+  Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, ''), '') ||
+  '/';
+const links = [
+  { label: 'Studio', path: 'studio/' },
+  { label: 'Services', path: 'services/' },
+  { label: 'Products', path: 'products/' },
+];
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href={url()} aria-label="Alphpaca home">
+      <img src={url('alphpaca-emblem.svg')} width="33" height="35" alt="" />
+      <span>
+        alphpaca<span class="brand-dot">.</span>
+      </span>
+    </a>
+    <button
+      class="menu-toggle"
+      aria-controls="main-nav"
+      aria-expanded="false"
+      aria-label="Open navigation"
+    >
+      <span></span>
+      <span></span>
+    </button>
+    <nav id="main-nav" aria-label="Main navigation">
+      {links.map((link) => (
+        <a
+          href={url(link.path)}
+          aria-current={path.startsWith(`/${link.path}`) ? 'page' : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        class="nav-contact"
+        href={url('contact/')}
+        aria-current={path === '/contact/' ? 'page' : undefined}
+      >
+        Let’s talk{' '}
+        <span class="small-plus" aria-hidden="true">
+          +
+        </span>
+      </a>
+    </nav>
+  </div>
+</header>
+<script>
+  const button = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const nav = document.querySelector<HTMLElement>('#main-nav');
+  function closeMenu() {
+    button?.setAttribute('aria-expanded', 'false');
+    button?.setAttribute('aria-label', 'Open navigation');
+    nav?.classList.remove('is-open');
+  }
+  button?.addEventListener('click', () => {
+    const open = button.getAttribute('aria-expanded') !== 'true';
+    button.setAttribute('aria-expanded', String(open));
+    button.setAttribute(
+      'aria-label',
+      open ? 'Close navigation' : 'Open navigation',
+    );
+    nav?.classList.toggle('is-open', open);
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeMenu();
+      button?.focus();
+    }
+  });
+  nav
+    ?.querySelectorAll('a')
+    .forEach((link) => link.addEventListener('click', closeMenu));
+  window.matchMedia('(min-width: 901px)').addEventListener('change', closeMenu);
+</script>

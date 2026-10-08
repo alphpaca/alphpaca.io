@@ -1,0 +1,80 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTA from '../../components/CTA.astro';
+import ProductPreview from '../../components/ProductPreview.astro';
+import { url } from '../../lib/site';
+---
+
+<Layout
+  title="Our products"
+  description="Discover Atlas Cloud, our Docker-based PaaS, and Eduroo, our learning management platform. Two Alphpaca products currently in development."
+>
+  <section class="container page-hero">
+    <span class="eyebrow">Our products / In the making</span>
+    <h1>
+      Useful ideas.
+      <br />
+      <span class="gold-text">Built from within.</span>
+    </h1>
+    <p class="hero-description">
+      We’re developing our own platforms alongside our studio work. Two
+      different problems. One shared ambition: make the tools people depend on
+      simpler to use.
+    </p>
+  </section>
+  <section class="container product-showcase">
+    <article class="product-feature">
+      <div>
+        <span class="eyebrow">01 / Developer infrastructure</span>
+        <h2>Atlas Cloud</h2>
+        <span class="status-badge">In development</span>
+        <p>
+          A Docker-based platform as a service for teams that want the
+          convenience of a deployment platform and control over where their
+          applications run.
+        </p>
+        <p>
+          We’re bringing deployments, service configuration, and operational
+          visibility together—so a small team can spend more time on its
+          product.
+        </p>
+        <a class="button button-outline" href={url('products/atlas-cloud/')}>
+          Meet Atlas Cloud <span aria-hidden="true">+</span>
+        </a>
+      </div>
+      <ProductPreview product="atlas" />
+    </article>
+    <article class="product-feature">
+      <div>
+        <span class="eyebrow">02 / Learning technology</span>
+        <h2>Eduroo</h2>
+        <span class="status-badge">In development</span>
+        <p>
+          A learning management platform for educators and organizations that
+          want structured courses without a complicated learning experience.
+        </p>
+        <p>
+          Inspired by the depth of traditional LMS platforms like Moodle, with a
+          focus on clear course creation, practical assessment, and visible
+          learner progress.
+        </p>
+        <a class="button button-outline" href={url('products/eduroo/')}>
+          Meet Eduroo <span aria-hidden="true">+</span>
+        </a>
+      </div>
+      <ProductPreview product="eduroo" />
+    </article>
+  </section>
+  <section class="container development-note">
+    <span class="eyebrow">Built in the open, described honestly</span>
+    <p>
+      Both products are in development. The interfaces shown are concepts, and
+      the capabilities described are our intended direction. We’re talking to
+      potential users as we refine what comes first.
+    </p>
+  </section>
+  <CTA
+    title="Building in this space?\nWe’d love to compare notes."
+    text="If deployments or learning management are part of your everyday work, your perspective could help shape what we build."
+  />
+</Layout>

@@ -1,0 +1,105 @@
+---
+import Icon from './Icon.astro';
+interface Props {
+  product: 'atlas' | 'eduroo';
+}
+const { product } = Astro.props;
+---
+
+{product === 'atlas' ? (
+  <div
+    class="product-preview atlas-preview"
+    role="img"
+    aria-label="Atlas Cloud interface concept showing Docker services, deployments, and logs. Illustrative data."
+  >
+    <div class="preview-top">
+      <span class="preview-brand">
+        <Icon name="cloud" /> Atlas Cloud
+      </span>
+      <span class="preview-meta">workspace / production</span>
+    </div>
+    <div class="preview-content">
+      <div class="preview-heading">
+        <span>Overview</span>
+        <span class="tiny-tag">3 services</span>
+      </div>
+      <div class="service-row">
+        <span class="service-symbol">◇</span>
+        <div>
+          <strong>web-app</strong>
+          <small>Docker image · main</small>
+        </div>
+        <span class="service-status">Running</span>
+      </div>
+      <div class="service-row">
+        <span class="service-symbol">≡</span>
+        <div>
+          <strong>postgres</strong>
+          <small>Database · persistent volume</small>
+        </div>
+        <span class="service-status">Running</span>
+      </div>
+      <div class="service-row">
+        <span class="service-symbol">⌘</span>
+        <div>
+          <strong>worker</strong>
+          <small>Background jobs · main</small>
+        </div>
+        <span class="service-status">Running</span>
+      </div>
+      <div class="terminal">
+        <span>$ atlas deploy web-app</span>
+        <span>
+          Pulling image… <b>done</b>
+        </span>
+        <span>
+          Health check passed. <b>Deployment ready.</b>
+        </span>
+      </div>
+    </div>
+    <span class="concept-label">Product concept · illustrative interface</span>
+  </div>
+) : (
+  <div
+    class="product-preview eduroo-preview"
+    role="img"
+    aria-label="Eduroo interface concept showing a learning path with lessons and progress. Illustrative data."
+  >
+    <div class="preview-top">
+      <span class="preview-brand">
+        <Icon name="book" /> eduroo
+      </span>
+      <span class="avatar">JD</span>
+    </div>
+    <div class="preview-content">
+      <span class="preview-meta">YOUR LEARNING SPACE</span>
+      <div class="learning-heading">
+        A little progress.
+        <br />A lot of possibility.
+      </div>
+      <div class="course-card">
+        <div class="course-art">
+          <Icon name="code" />
+          <span>01 / FOUNDATIONS</span>
+        </div>
+        <div class="course-info">
+          <span class="preview-meta">LEARNING PATH</span>
+          <strong>Introduction to web development</strong>
+          <div class="progress-track">
+            <span></span>
+          </div>
+          <div class="course-bottom">
+            <span>4 of 8 lessons completed</span>
+            <span>50%</span>
+          </div>
+        </div>
+      </div>
+      <div class="lesson-row">
+        <Icon name="check" />
+        <span>Next up: Your first application</span>
+        <span class="tiny-tag">Lesson 05</span>
+      </div>
+    </div>
+    <span class="concept-label">Product concept · illustrative interface</span>
+  </div>
+)}

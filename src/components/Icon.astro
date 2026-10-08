@@ -1,0 +1,31 @@
+---
+interface Props {
+  name?: 'cloud' | 'book' | 'code' | 'layers' | 'shield' | 'spark' | 'check';
+  class?: string;
+}
+const { name = 'code', class: className = '' } = Astro.props;
+const paths = {
+  cloud: 'M7 18a5 5 0 0 1-1-9.9A6 6 0 0 1 17.8 7a5.5 5.5 0 0 1 .7 11H7Z',
+  book: 'M12 5v15M12 5C8 2 3 3 3 3v15s5-1 9 2c4-3 9-2 9-2V3s-5-1-9 2Z',
+  code: 'm8 6-6 6 6 6m8-12 6 6-6 6m-3-15-2 18',
+  layers: 'm12 3 10 5-10 5L2 8l10-5Zm-10 9 10 5 10-5M2 16l10 5 10-5',
+  shield: 'm12 2 9 4v6c0 6-9 10-9 10S3 18 3 12V6l9-4Zm-4 10 3 3 5-6',
+  spark: 'm12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z',
+  check: 'm5 12 4 4L19 6',
+};
+---
+
+<svg
+  class={className}
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+>
+  <path d={paths[name]} />
+</svg>

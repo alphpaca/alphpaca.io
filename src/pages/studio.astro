@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTA from '../components/CTA.astro';
+import { url } from '../lib/site';
+---
+
+<Layout
+  title="The studio"
+  description="Meet Alphpaca, an independent software studio and product company combining practical engineering with long-term product thinking."
+>
+  <section class="container page-hero">
+    <span class="eyebrow">The studio / Independent by nature</span>
+    <h1>
+      We care about
+      <br />
+      <span class="gold-text">what we build.</span>
+    </h1>
+    <p class="hero-description">
+      And just as much about why we build it. Alphpaca brings product thinking
+      and software engineering together to turn useful ideas into dependable
+      digital products.
+    </p>
+  </section>
+  <section class="container section split-story">
+    <div class="studio-mark">
+      <img
+        src={url('alphpaca-emblem.svg')}
+        width="260"
+        height="270"
+        alt="Alphpaca’s gold alpaca emblem"
+      />
+      <span class="eyebrow">Thoughtful software. Long-term thinking.</span>
+    </div>
+    <div>
+      <span class="eyebrow">A studio with a builder’s mindset</span>
+      <h2>
+        Close to the problem.
+        <br />
+        Committed to the craft.
+      </h2>
+      <p>
+        Good software is a series of good decisions. What to build. What to
+        leave out. Where to keep things simple, and where to invest for the
+        future.
+      </p>
+      <p>
+        We work with founders and teams who want a hands-on technical partner.
+        Our approach connects the needs of the business, the experience of the
+        user, and the reality of maintaining a system after launch.
+      </p>
+      <p>
+        We also build our own products. Atlas Cloud and Eduroo put that same
+        approach to work in cloud infrastructure and education—two areas where
+        better tools can make a real difference.
+      </p>
+    </div>
+  </section>
+  <section class="container section">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">What guides us</span>
+        <h2>
+          Principles we
+          <br />
+          put into practice.
+        </h2>
+      </div>
+    </div>
+    <div class="values-grid">
+      <article>
+        <span class="eyebrow">01 / Understand first</span>
+        <h3>Start with the problem.</h3>
+        <p>
+          Talk to the people using the product. Define the outcome. Challenge
+          assumptions before they become expensive features.
+        </p>
+      </article>
+      <article>
+        <span class="eyebrow">02 / Build deliberately</span>
+        <h3>Make complexity earn its place.</h3>
+        <p>
+          Choose tools that fit the job. Prefer readable code and clear
+          architecture. Leave the system easier to understand than you found it.
+        </p>
+      </article>
+      <article>
+        <span class="eyebrow">03 / Own the work</span>
+        <h3>Stay accountable.</h3>
+        <p>
+          Make tradeoffs visible, share progress early, and raise the hard
+          questions. A useful partnership depends on honest communication.
+        </p>
+      </article>
+      <article>
+        <span class="eyebrow">04 / Think beyond launch</span>
+        <h3>Build for the next chapter.</h3>
+        <p>
+          Consider accessibility, security, observability, and maintenance from
+          the start. Shipping is a milestone, not the end of the story.
+        </p>
+      </article>
+    </div>
+  </section>
+  <section class="container section manifesto">
+    <span class="eyebrow">Our perspective on AI</span>
+    <h2>
+      Better tools.
+      <br />
+      <span class="gold-text">The same responsibility.</span>
+    </h2>
+    <p>
+      AI-assisted development can shorten the path from an idea to a working
+      product. We see it as a tool for exploration, implementation, and
+      review—with engineers responsible for the architecture, validation, and
+      final result.
+    </p>
+    <p>
+      Our standard stays the same: understand what we ship, protect sensitive
+      information, and verify the behavior that matters.
+    </p>
+  </section>
+  <CTA />
+</Layout>

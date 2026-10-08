@@ -1,0 +1,141 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTA from '../components/CTA.astro';
+import Icon from '../components/Icon.astro';
+const services = [
+  {
+    id: 'product-engineering',
+    number: '01',
+    icon: 'code' as const,
+    title: 'Product engineering',
+    intro: 'Turn a clear opportunity into a product people can use.',
+    text: 'From an early MVP to a growing platform, we help shape the right scope and build the application around it. The aim is useful software with a foundation your team can keep working with.',
+    items: [
+      'Product discovery & technical scoping',
+      'Custom web applications & SaaS platforms',
+      'APIs, integrations & backend systems',
+      'Accessible interfaces & frontend engineering',
+    ],
+  },
+  {
+    id: 'cloud-infrastructure',
+    number: '02',
+    icon: 'layers' as const,
+    title: 'Cloud & infrastructure',
+    intro: 'Give your software a dependable place to run.',
+    text: 'We design practical environments for building, deploying, and operating applications. Clear deployment paths and visibility into system behavior help teams release with confidence.',
+    items: [
+      'Docker-based application environments',
+      'Continuous integration & delivery',
+      'Cloud architecture & deployment automation',
+      'Monitoring, backups & operational handover',
+    ],
+  },
+  {
+    id: 'technical-partnership',
+    number: '03',
+    icon: 'spark' as const,
+    title: 'Technical partnership',
+    intro: 'Make your next technical decision a better one.',
+    text: 'Whether you’re starting from a blank page or working through an existing codebase, we bring an outside perspective and hands-on engineering. We help identify the next useful step and follow it through.',
+    items: [
+      'MVP planning & architecture reviews',
+      'Codebase assessment & modernization',
+      'Performance & reliability improvements',
+      'Ongoing product development',
+    ],
+  },
+];
+---
+
+<Layout
+  title="Services"
+  description="Product engineering, Docker-based cloud infrastructure, and hands-on technical partnership for founders and growing teams."
+>
+  <section class="container page-hero">
+    <span class="eyebrow">Our services / From idea to operation</span>
+    <h1>
+      Ambition meets
+      <br />
+      <span class="gold-text">execution.</span>
+    </h1>
+    <p class="hero-description">
+      A hands-on software partner for the whole journey. We help you decide what
+      matters, build it carefully, and prepare it for the real world.
+    </p>
+  </section>
+  <section class="container service-details">
+    {services.map((service) => (
+      <article id={service.id} class="service-detail">
+        <div>
+          <span class="eyebrow">{service.number} / Our craft</span>
+          <Icon name={service.icon} />
+          <h2>{service.title}</h2>
+        </div>
+        <div>
+          <h3>{service.intro}</h3>
+          <p>{service.text}</p>
+          <ul class="check-list">
+            {service.items.map((item) => (
+              <li>
+                <Icon name="check" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </article>
+    ))}
+  </section>
+  <section class="container section">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">How we work</span>
+        <h2>
+          A clear path.
+          <br />
+          Room to learn.
+        </h2>
+      </div>
+      <p>
+        We work in focused steps, with visible progress and space to adapt as
+        the product becomes clearer.
+      </p>
+    </div>
+    <ol class="process-grid">
+      <li>
+        <span class="eyebrow">01 / Discover</span>
+        <h3>Understand the need.</h3>
+        <p>
+          Align on the users, business goal, constraints, and what success
+          should look like.
+        </p>
+      </li>
+      <li>
+        <span class="eyebrow">02 / Shape</span>
+        <h3>Make a practical plan.</h3>
+        <p>
+          Define the scope, architecture, and first useful release. Surface
+          tradeoffs early.
+        </p>
+      </li>
+      <li>
+        <span class="eyebrow">03 / Build</span>
+        <h3>Ship in useful steps.</h3>
+        <p>
+          Develop, review, and validate. Share working software and use feedback
+          to guide the next iteration.
+        </p>
+      </li>
+      <li>
+        <span class="eyebrow">04 / Evolve</span>
+        <h3>Prepare for what’s next.</h3>
+        <p>
+          Document the system, support the handover, and plan improvements
+          around real usage.
+        </p>
+      </li>
+    </ol>
+  </section>
+  <CTA />
+</Layout>

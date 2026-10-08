@@ -1,0 +1,161 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTA from '../../components/CTA.astro';
+import Icon from '../../components/Icon.astro';
+import ProductPreview from '../../components/ProductPreview.astro';
+import { url } from '../../lib/site';
+const features = [
+  {
+    icon: 'code' as const,
+    title: 'Docker at the core',
+    text: 'Deploy container images with a consistent workflow across your applications. Keep the flexibility of the Docker ecosystem.',
+  },
+  {
+    icon: 'cloud' as const,
+    title: 'Your infrastructure',
+    text: 'A bring-your-own-infrastructure direction: run workloads on servers you control, with a platform layer to manage them.',
+  },
+  {
+    icon: 'layers' as const,
+    title: 'Services in one place',
+    text: 'Bring applications, background workers, and supporting services into a shared view of your project.',
+  },
+  {
+    icon: 'shield' as const,
+    title: 'Safer releases',
+    text: 'Planned health checks, deployment history, and rollback workflows to make application changes easier to manage.',
+  },
+  {
+    icon: 'spark' as const,
+    title: 'Less setup, more building',
+    text: 'Simplify environment configuration, domains, and deployment routines so small teams can stay focused.',
+  },
+  {
+    icon: 'book' as const,
+    title: 'Operational clarity',
+    text: 'Make service status and application logs accessible, with a clear path from a failed deployment to its cause.',
+  },
+];
+---
+
+<Layout
+  title="Atlas Cloud — Docker-based PaaS"
+  description="Atlas Cloud is Alphpaca’s Docker-based PaaS in development: a simpler way to deploy containers, manage services, and run applications on infrastructure you control."
+>
+  <section class="container product-hero">
+    <div>
+      <span class="eyebrow">An Alphpaca product / Atlas Cloud</span>
+      <span class="status-badge">In development</span>
+      <h1>
+        Your containers.
+        <br />
+        <span class="gold-text">
+          A clearer path
+          <br />
+          to production.
+        </span>
+      </h1>
+      <p>
+        Atlas Cloud is a Docker-based platform as a service for teams that want
+        simpler deployments without giving up control of their infrastructure.
+      </p>
+      <a class="button button-gold" href={url('contact/?interest=atlas')}>
+        Talk to us about Atlas <span aria-hidden="true">+</span>
+      </a>
+    </div>
+    <ProductPreview product="atlas" />
+  </section>
+  <section class="container product-intro">
+    <h2>
+      Build the product.
+      <br />
+      We’re simplifying the platform.
+    </h2>
+    <p>
+      Going from a Docker image to a dependable running application still means
+      bringing a lot of pieces together. Atlas Cloud is our answer: an
+      opinionated platform layer for deploying, managing, and understanding your
+      services.
+    </p>
+  </section>
+  <section class="container section">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">The product direction</span>
+        <h2>
+          Less friction.
+          <br />
+          More control.
+        </h2>
+      </div>
+      <p>
+        We’re designing Atlas for small engineering teams, independent
+        developers, and studios managing multiple applications. These are the
+        capabilities guiding development.
+      </p>
+    </div>
+    <div class="feature-grid">
+      {features.map((feature) => (
+        <article>
+          <Icon name={feature.icon} />
+          <h3>{feature.title}</h3>
+          <p>{feature.text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="container section roadmap">
+    <div class="roadmap-inner">
+      <div>
+        <span class="eyebrow">Where we’re heading</span>
+        <h2>
+          A focused foundation.
+          <br />
+          <span class="gold-text">Then a wider horizon.</span>
+        </h2>
+        <p>
+          Atlas Cloud is under active development. We’re keeping the first scope
+          focused on a dependable deployment workflow, then extending it around
+          the needs of early users.
+        </p>
+        <p>
+          There’s no public release date or signup yet. If this is a problem you
+          face, we’d like to understand your workflow.
+        </p>
+      </div>
+      <ol>
+        <li>
+          <div>
+            <h3>Container deployment foundation</h3>
+            <p>
+              Docker image deployments, project configuration, and a clear view
+              of running services.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Everyday operational workflows</h3>
+            <p>
+              Logs, domains, health checks, and safer ways to release
+              application updates.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Learn with potential users</h3>
+            <p>
+              Validate the infrastructure setup and deployment experience with
+              teams doing this work every day.
+            </p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+  <CTA
+    title="Less time on deployment.\nMore time on your product."
+    text="Tell us how you deploy today, what gets in the way, and what a better platform would look like for your team."
+  />
+</Layout>

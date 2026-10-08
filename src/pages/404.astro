@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { url } from '../lib/site';
+---
+
+<Layout title="Page not found" noindex>
+  <section class="container error-page">
+    <span class="eyebrow">404 / A small detour</span>
+    <h1>
+      This path
+      <br />
+      <span class="gold-text">doesn’t lead anywhere.</span>
+    </h1>
+    <p>The page may have moved, or the address may be incomplete.</p>
+    <a class="button button-gold" href={url()}>
+      Back to the studio <span aria-hidden="true">+</span>
+    </a>
+  </section>
+</Layout>
