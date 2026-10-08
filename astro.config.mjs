@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// The Pages workflow supplies these automatically for both repository and custom domains.
+// Production uses the custom domain root. Explicit overrides support repository-path previews.
 export default defineConfig({
   site: process.env.SITE_URL || 'https://alphpaca.io',
   base: process.env.BASE_PATH || '/',

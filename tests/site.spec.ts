@@ -24,6 +24,23 @@ test('every public page renders and its internal links and assets resolve under 
     const response = await page.goto(path(route));
     expect(response?.status(), route).toBe(200);
     await expect(page.locator('h1')).toHaveCount(1);
+    // A missing stylesheet can return a fallback HTML page with status 200.
+    // Verify actual rendering as well as the asset response types.
+    await expect(page.locator('body')).toHaveCSS('margin', '0px');
+    await expect(page.locator('h1')).toHaveCSS('font-family', /Manrope/);
+    expect(
+      await page
+        .locator('img')
+        .evaluateAll((images) =>
+          images.every(
+            (image) =>
+              image instanceof HTMLImageElement &&
+              image.complete &&
+              image.naturalWidth > 0,
+          ),
+        ),
+      `images on ${route}`,
+    ).toBe(true);
     await expect(page.locator('meta[name="description"]')).toHaveAttribute(
       'content',
       /\S+/,
@@ -43,7 +60,17 @@ test('every public page renders and its internal links and assets resolve under 
       const clean = target.split(/[?#]/)[0];
       if (checked.has(clean)) continue;
       checked.add(clean);
-      expect((await request.get(clean)).ok(), clean).toBe(true);
+      const asset = await request.get(clean);
+      expect(asset.ok(), clean).toBe(true);
+      if (clean.endsWith('.css')) {
+        expect(asset.headers()['content-type'], clean).toContain('text/css');
+      } else if (clean.endsWith('.svg')) {
+        expect(asset.headers()['content-type'], clean).toContain(
+          'image/svg+xml',
+        );
+      } else if (clean.endsWith('.js')) {
+        expect(asset.headers()['content-type'], clean).toMatch(/javascript/);
+      }
     }
   }
   expect(errors).toEqual([]);

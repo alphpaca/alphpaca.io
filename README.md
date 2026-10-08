@@ -27,13 +27,13 @@ Build output is in `dist/`. No server, database, API keys, or paid services are 
 2. In **Settings → Pages → Build and deployment**, select **GitHub Actions**.
 3. Push to `main` or run **Deploy to GitHub Pages** from the Actions tab.
 
-The included workflow installs locked dependencies, checks Astro/TypeScript, builds the static pages, and deploys the artifact. It reads the actual Pages origin and base path from GitHub. Internal links, scripts, fonts, the emblem, metadata, and sitemap work both at a domain root and under a repository path such as `/alphpacaio/`.
+The included workflow installs locked dependencies, checks Astro/TypeScript, builds the static pages, and deploys the artifact. Production explicitly uses `SITE_URL=https://alphpaca.io` and `BASE_PATH=/`, because the custom domain serves from its root. The repository name `alphpaca.io` must not become a URL prefix. Internal links, scripts, fonts, the emblem, metadata, and sitemap also support repository-path previews through explicit environment overrides.
 
 ### Use alphpaca.io
 
-The site defaults to `https://alphpaca.io`, and `public/CNAME` contains the domain. Set **alphpaca.io** as the custom domain in the repository’s **Settings → Pages**, configure your domain’s DNS for GitHub Pages, then enable **Enforce HTTPS** when available. Follow [GitHub’s custom domain guide](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site) for the exact DNS records. Re-run the deployment after changing the Pages domain settings so canonical URLs and the sitemap reflect the new origin.
+The site defaults to `https://alphpaca.io`, and `public/CNAME` contains the domain. Set **alphpaca.io** as the custom domain in the repository’s **Settings → Pages**, configure your domain’s DNS for GitHub Pages, then enable **Enforce HTTPS** when available. Follow [GitHub’s custom domain guide](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site) for the exact DNS records. The production build uses the custom domain even if GitHub’s Pages metadata still reports a repository path during initial setup.
 
-If you want to use only the default `github.io` address, remove `public/CNAME` and leave the custom domain field empty. No source changes to navigation are needed.
+If you want to use only the default `github.io` address, remove `public/CNAME`, leave the custom domain field empty, and set the deployment workflow’s `SITE_URL` to your GitHub Pages origin and `BASE_PATH` to the repository path (or `/` for a `<username>.github.io` repository). No source changes to navigation are needed.
 
 Deployment configuration follows [Astro’s GitHub Pages guide](https://docs.astro.build/en/guides/deploy/github/).
 
@@ -57,7 +57,7 @@ npm run build
 npm test
 ```
 
-Browser checks cover route rendering, internal links and assets, mobile overflow, enlarged text, mobile navigation, contact topics, sitemap, and the custom 404. The pull-request workflow runs them against a repository-subpath build to catch GitHub Pages path regressions.
+Browser checks cover route rendering, loaded styles and images, internal links and asset content types, mobile overflow, enlarged text, mobile navigation, contact topics, sitemap, and the custom 404. The pull-request workflow runs them against both the production domain-root build and a repository-subpath build to catch GitHub Pages path regressions.
 
 To reproduce that build locally:
 
